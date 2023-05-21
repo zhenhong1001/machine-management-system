@@ -15,4 +15,4 @@ Login page
 
 Main Menu page
 <br>
-![image](https://github.com/zhenhong1001/machine-management-system/assets/60844852/4fb55b34-75ab-4894-8299-1871d7d48fa4)
+![image](https://github.com/zhenhong1001/machine-management-system/assets/60844852/5c7716ea-d91d-45a8-b2d1-4dd05db8168a)
