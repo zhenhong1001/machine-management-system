@@ -1,0 +1,208 @@
+﻿<Window x:Class="machine_management_system.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:machine_management_system"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Shop" Height="450" Width="600" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style x:Key="TextCentering" TargetType="TextBlock">
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+            <!--<Setter Property="TextBlock.FontWeight" Value="Bold"/>-->
+            <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="PasswordBox" TargetType="PasswordBox">
+            <Setter Property="Visibility" Value="Visible" />
+        </Style>
+        <Style x:Key="PasswordTextBox" TargetType="TextBox">
+            <Setter Property="Visibility" Value="Hidden" />
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <TabControl x:Name="tabControl">
+
+            <!--Sign Up Page-->
+            <TabItem Header="Sign Up" Padding="0" Margin="0" Width="0" Height="0" Name="SignUp">
+                <Grid Background="Cornsilk">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="20" VerticalAlignment="Top" Content="Sign Up" Margin="20,20,0,0"/>
+                    <Grid Grid.Row="1" Background="White" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="80"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="1" Grid.Column="1" Content="Username:"/>
+                        <Label Grid.Row="3" Grid.Column="1" Content="Password:"/>
+                        <Label Grid.Row="5" Grid.Column="1" Content="Confirm Password:"/>
+                        <Label Grid.Row="7" Grid.Column="1" Content="Shop Name:"/>
+                        <Label Grid.Row="9" Grid.Column="1" Content="Phone Number:"/>
+                        <Label Grid.Row="11" Grid.Column="1" Content="Email:"/>
+
+                        <Button Grid.Row="12" Grid.Column="1" Content="Click here to login" Cursor="Hand" Click="OnClickToLoginPage" VerticalAlignment="Center">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <TextBlock TextDecorations="Underline">  
+                                <ContentPresenter />
+                                    </TextBlock>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Foreground" Value="Navy" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Foreground" Value="Red" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+                        <TextBox Grid.Row="1" Grid.Column="2" x:Name="usernameText" materialDesign:HintAssist.Hint="Username" Margin="0,0,10,10"/>
+                        <PasswordBox Grid.Row="3" Grid.Column="2" x:Name="passwordText" PasswordChar="*" materialDesign:HintAssist.Hint="Password"/>
+                        <PasswordBox Grid.Row="5" Grid.Column="2" x:Name="confirmPasswordText" materialDesign:HintAssist.Hint="Confirm Password" PasswordChar="*"/>
+                        <TextBox Grid.Row="7" Grid.Column="2" x:Name="shopNameText" materialDesign:HintAssist.Hint="abc"/>
+                        <TextBox Grid.Row="9" Grid.Column="2" x:Name="phoneNumberText" materialDesign:HintAssist.Hint="012-3456789"/>
+                        <TextBox Grid.Row="11" Grid.Column="2" x:Name="emailText" materialDesign:HintAssist.Hint="abc@gmail.com"/>
+
+                        <Button Grid.Row="12" Grid.Column="2" Content="Sign Up" Margin="24,14,106,14" Click="OnSignUpClick"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+            <!--Login Page-->
+            <TabItem Header="Login" Padding="0" Margin="0" Width="0" Height="0" Name="Login">
+                <Grid Background="Cornsilk">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="20" VerticalAlignment="Top" Content="Login" Margin="20,20,0,0"/>
+                    <Grid Grid.Row="1" Background="White" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="80"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="1" Grid.Column="1" Content="Username:"/>
+                        <Label Grid.Row="3" Grid.Column="1" Content="Password:"/>
+
+                        <Button Grid.Row="12" Grid.Column="1" Content="Register an account" Cursor="Hand" Click="OnClickToRegisterPage" VerticalAlignment="Center">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <TextBlock TextDecorations="Underline">  
+                                <ContentPresenter />
+                                    </TextBlock>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Foreground" Value="Navy" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="Foreground" Value="Red" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <TextBox Grid.Row="1" Grid.Column="2" x:Name="usernameLoginText" materialDesign:HintAssist.Hint="Username" Margin="0,0,10,10"/>
+                        <PasswordBox Grid.Row="3" Grid.Column="2" x:Name="passwordLoginText" materialDesign:HintAssist.Hint="Password" PasswordChar="*"/>
+
+                        <Button Grid.Row="12" Grid.Column="2" Content="Login" Margin="24,14,106,14" Click="OnLoginClick"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+            <!--Main Page-->
+            <TabItem Header="Main" Padding="0" Margin="0" Width="0" Height="0" Name="Main">
+                <Grid Background="Cornsilk">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Content="Item:" VerticalAlignment="Center"></Label>
+                        <Label Grid.Row="1" Grid.Column="0" Content="Price (RM):" VerticalAlignment="Center"></Label>
+                        <Label Grid.Row="2" Grid.Column="0" Content="Brand:" VerticalAlignment="Center"></Label>
+                        <Label Grid.Row="3" Grid.Column="0" Content="Quantity:" VerticalAlignment="Center"></Label>
+
+                        <TextBox Grid.Row="0" Grid.Column="1" x:Name="itemText" materialDesign:HintAssist.Hint="Item" Margin="0,0,10,10"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" x:Name="priceText" materialDesign:HintAssist.Hint="Price" Margin="0,0,10,10" PreviewTextInput="PriceText_PreviewTextInput"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" x:Name="brandText" materialDesign:HintAssist.Hint="Brand" Margin="0,0,10,10"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" x:Name="quantityText" materialDesign:HintAssist.Hint="Quantity" Margin="0,0,10,10" PreviewTextInput="QuantityText_PreviewTextInput"/>
+
+                        <Button Grid.Row="0" Grid.Column="2" Content="Add" Margin="24,5,0,5" Click="OnAddClick"/>
+                        <Button Grid.Row="1" Grid.Column="2" Content="Update" Margin="24,5,0,5" Click="OnUpdateClick"/>
+                        <Button Grid.Row="2" Grid.Column="2" Content="Delete" Margin="24,5,0,5" Click="OnDeleteClick"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="0,10,0,0">
+                        <DataGrid x:Name="itemTable" AutoGenerateColumns="False" SelectionChanged="itemTable_SelectionChanged" IsReadOnly="True" CanUserAddRows="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding no}" Header="No" Width="50" SortMemberPath="no" ElementStyle="{StaticResource TextCentering}"/>
+                                <DataGridTextColumn Binding="{Binding item}" Header="Item" Width="100" SortMemberPath="item" ElementStyle="{StaticResource TextCentering}"/>
+                                <DataGridTextColumn Binding="{Binding price}" Header="Price" Width="100" SortMemberPath="Id" ElementStyle="{StaticResource TextCentering}"/>
+                                <DataGridTextColumn Binding="{Binding brand}" Header="Brand" Width="100" SortMemberPath="Id" ElementStyle="{StaticResource TextCentering}"/>
+                                <DataGridTextColumn Binding="{Binding quantity}" Header="Quantity" Width="100" SortMemberPath="Id" ElementStyle="{StaticResource TextCentering}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
